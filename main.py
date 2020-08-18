@@ -108,4 +108,43 @@ def swapNodes(indexes, queries):
 indices = [[2, 3], [4, -1], [5, -1], [6, -1], [7, 8], [-1, 9], [-1, -1], [10, 11], [-1, -1], [-1, -1], [-1, -1]]
 queries = [2,4]
 
-swapNodes(indices, queries)
+myNode = swapNodes(indices, queries)
+
+def inOrderTraversal(rootNode):
+    s = []
+
+    s.append(rootNode.right)
+    s.append(rootNode)
+    s.append(rootNode.left)
+    
+    # while len(s) > 0:
+
+    #     if s[-1].left:
+    #         s.append(s[-1].left)
+        
+    #     else:
+    #         removedNode = s.pop()
+    #         print('removed from left: ', removedNode.value)
+        
+    #     if s[-1].right:
+    #         s.append(s[-1])
+
+    #     else:
+    #         removedNode = s.pop()
+    #         print('removed right: ', removedNode.value)
+
+def inOrderRecursive(node):
+    if(node.value < 0):
+        # print(node.value)
+        return
+    
+
+    inOrderRecursive(node.left)
+    print(node.value)
+
+    inOrderRecursive(node.right)
+    print(node.value)
+
+
+
+inOrderRecursive(myNode)
