@@ -134,16 +134,13 @@ def inOrderTraversal(rootNode):
     #         print('removed right: ', removedNode.value)
 
 def inOrderRecursive(node):
-    if(node.value < 0):
-        # print(node.value)
-        return
+
+    if node.left.value > 0:
+        inOrderRecursive(node.left)
     
-
-    inOrderRecursive(node.left)
     print(node.value)
-
-    inOrderRecursive(node.right)
-    print(node.value)
+    if node.right.value > 0:
+        inOrderRecursive(node.right)
 
 
 
