@@ -68,12 +68,12 @@ def swapNodes(indexes, queries):
     for query in queries:
 
         # Show the tree
-        # print("\t     ", root.value)
-        # print("\t", "    / \\")
-        # print("\t  ", root.left.value,"   ", root.right.value)
+        print("\t     ", root.value)
+        print("\t", "    / \\")
+        print("\t  ", root.left.value,"   ", root.right.value)
 
-        # print("\t", "/  \\"," ", "/  \\")
-        # print("      ", root.left.left.value,"  ", root.left.right.value,root.right.left.value,"  ",root.right.right.value)
+        print("\t", "/  \\"," ", "/  \\")
+        print("      ", root.left.left.value,"  ", root.left.right.value,root.right.left.value,"  ",root.right.right.value)
 
         # traverse the tree
         q = deque()
@@ -89,21 +89,22 @@ def swapNodes(indexes, queries):
             if cur == False:
                 q.appendleft(False)
                 depth += 1
-                # print("\t Depth: ", depth)
+                print("\t Depth: ", depth)
 
-                # if not depth % query:
-                #     # print("\t\t\t It is a mulitple!")
-                #     print(depth, query)
+                if not depth % query:
+                    print("\t\t\t It is a mulitple!")
+                    print(depth, query)
 
 
 
                 # if depth == query
                 # if depth == 
             else:
-                # print(cur.value)
+                print(cur.value)
 
                 # swap nodes
                 if not depth % query:
+                    print("SWAPPING AT DEPTH: ", depth)
                     cur.left, cur.right = cur.right, cur.left
                 
                 if cur.left.value > 0:
@@ -111,23 +112,61 @@ def swapNodes(indexes, queries):
                 if cur.right.value > 0:
                     q.appendleft(cur.right)
 
+        print('\n recursive in order sort: \n')
         inOrderRecursive(root)
         results.append(path)
+        print("\t\t APPENDED TO RESULTS")
+        print("Depths counted : ", depth)
         path = []
-    return results
+        depth = 1
 
         # Show the tree
-        # print("\t     ", root.value)
-        # print("\t", "    / \\")
-        # print("\t  ", root.left.value,"   ", root.right.value)
+        print("\t     ", root.value)
+        print("\t", "    / \\")
+        print("\t  ", root.left.value,"   ", root.right.value)
 
-        # print("\t", "/  \\"," ", "/  \\")
-        # print("      ", root.left.left.value,"  ", root.left.right.value,root.right.left.value,"  ",root.right.right.value)
+        print("\t", "/  \\"," ", "/  \\")
+        print("      ", root.left.left.value,"  ", root.left.right.value,root.right.left.value,"  ",root.right.right.value)
+        # print("      ", root.left.left.left.value,"  ",root.left.left.right.value,"  ", root.left.right.left.value,"  ", root.left.right.right.value,"  ","      ", root.right.left.left.value,"  ",root.right.left.right.value,"  ", root.right.right.left.value,"  ", root.right.right.right.value,"  ",)
+    return results
 
         
 
 
-indices = [[2, 3], [4, -1], [5, -1], [6, -1], [7, 8], [-1, 9], [-1, -1], [10, 11], [-1, -1], [-1, -1], [-1, -1]]
-queries = [2,4]
+# indices = [[2, 3], [4, -1], [5, -1], [6, -1], [7, 8], [-1, 9], [-1, -1], [10, 11], [-1, -1], [-1, -1], [-1, -1]]
+
+indices =  [[2, 3], [4, 5], [6, -1], [-1, 7], [8, 9], [10, 11], [12, 13], [-1, 14], [-1, -1], [15, -1], [16, 17], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1], [-1, -1]]
+queries = [2,3]
+
+# indices = [
+# [2, 3],
+# [-1, -1],
+# [-1, -1]
+# ]
+# queries = [1,1]
+
+# indices = [
+# [2, 3],
+# [-1, 4],
+# [-1, 5],
+# [-1, -1],
+# [-1, -1]
+# ]
+# queries = [2]
+
+# indices = [
+# [2, 3],
+# [4, -1],
+# [5, -1],
+# [6, -1],
+# [7, 8],
+# [-1, 9],
+# [-1, -1],
+# [10, 11],
+# [-1, -1],
+# [-1, -1],
+# [-1, -1]
+# ]
+# queries = [2, 4]
 
 print(swapNodes(indices, queries))
